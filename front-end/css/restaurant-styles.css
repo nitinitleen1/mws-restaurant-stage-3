@@ -1,0 +1,365 @@
+/* ====================== PAGE 2: RESTAURANT DETAILS ====================== */
+/* ====================== Breadcrumbs for Detailpage ====================== */
+#breadcrumb {
+  padding: 25px 20px;
+  list-style: none;
+  background-color: #eee;
+  font-size: 1.3em;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Display list items side by side */
+#breadcrumb li {
+  display: inline;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+#breadcrumb li + li:before {
+  padding: 8px;
+  color: black;
+  content: "/ ";
+}
+
+/* Add a color to all links inside the list */
+#breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+#breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+/* ====================== Elements for two column layout ====================== */
+#detail-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#map {
+  height: 300px;
+  width: 100vw;
+}
+
+#filler {
+  width: 50%;
+  height: 1px;
+  display: none;
+}
+
+/* Two column layout */
+@media screen and (min-width: 768px) {
+  #detail-container {
+    position: relative;
+    overflow-y: auto;
+  }
+
+  #filler {
+    width: 50%;
+    display: block;
+  }
+
+  #restaurant-container {
+    width: 50%;
+  }
+
+  #reviews-container {
+    width: 50%;
+    box-sizing: border-box;
+  }
+
+  #map-container {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+  }
+
+  #map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+}
+/* ====================== Restaurant Info Section ====================== */
+#restaurant-container {
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+#restaurant-name {
+  color: #f18200;
+  font-size: 1.8em;
+  font-weight: 200;
+  letter-spacing: 0;
+  margin: 20px 0 30px 0;
+  text-transform: uppercase;
+}
+
+#restaurant-img {
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#restaurant-address {
+  font-size: 1.2em;
+  padding: 15px 0;
+  text-align: center;
+}
+
+#restaurant-cuisine {
+  background-color: #333;
+  color: #ddd;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 10px;
+  margin: 2px 0;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#restaurant-hours {
+  margin: 0 auto;
+}
+
+#restaurant-hours td {
+  color: #666;
+  font-size: 1em;
+}
+
+/* ====================== Restaurant Review Section  ====================== */
+#reviews-container {
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #fff;
+  padding: 15px 20px;
+}
+
+#reviews-container h3 {
+  color: #f18200;
+  font-size: 1.8em;
+  font-weight: 200;
+  letter-spacing: 0;
+  margin-top: 7px;
+  display: flex;
+  float: left;
+}
+
+#reviews-container button {
+  background-color: #f18200;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.3em;
+  margin-bottom: 25px;
+  display: flex;
+  float: right;
+}
+
+/* ====================== Add Review Modal ====================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  border: 1px solid grey;
+  width: 90%;
+  border-radius: 5px;
+  margin-top: 15%;
+  padding: 0;
+}
+
+.modal-header {
+  background-color: #0275d8;
+  color: white;
+  overflow: hidden;
+}
+
+.modal-header h2 {
+  margin: 0;
+  padding: 10px;
+  float: left;
+}
+
+.close {
+  font-size: 28px;
+  font-weight: bold;
+  float: right;
+  padding: 8px;
+}
+
+.close:hover, .close:focus {
+  color: #f18200;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 15px;
+  font-size: 1.3em;
+}
+
+.modal-body input[type=text] {
+  border: 1px solid grey;
+  width: 100%;
+  height: 25px;
+}
+
+.modal-body textarea {
+  border: 1px solid grey;
+  width: 100%;
+  height: 150px;
+}
+
+.submit-button {
+  background-color: #f18200;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 1.2em;
+  color: white;
+}
+
+.rating-container {
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.rating-container p {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.rating {
+  padding: 0;
+  border: none;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+  user-select: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+}
+
+.rating > label {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > input[type=radio]:focus + label {
+  border: 1px solid #f18200;
+}
+
+.rating > *:hover,
+.rating > *:hover ~ label,
+.rating:not(:hover) > input:checked ~ label {
+  color: transparent;
+  cursor: inherit;
+}
+
+.rating > *:hover:before,
+.rating > *:hover ~ label:before,
+.rating:not(:hover) > input:checked ~ label:before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: black;
+}
+
+.rating > input {
+  position: relative;
+  transform: scale(3);
+  top: -0.5em;
+  margin-left: -2.5em;
+  z-index: 2;
+  opacity: 0;
+}
+
+#form-error {
+  background-color: lightcoral;
+  color: darkred;
+  border-radius: 10px;
+}
+
+#reviews-list {
+  margin: 0;
+  padding: 0;
+}
+
+.review {
+  background-color: #fff;
+  color: #666;
+  border: 2px solid #f3f3f3;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: block;
+  margin: 0 0 30px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.review-header {
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.reviewer-name {
+  float: left;
+  font-size: 1.5em;
+  font-weight: 200;
+  color: #fff;
+}
+
+.review-date {
+  float: right;
+  font-size: 1.1em;
+  color: #999;
+}
+
+.review-rating {
+  background-color: #f18200;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 3px 15px;
+  margin: 10px 10px 10px 0;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.review-body {
+  padding: 10px;
+  font-size: 1.1em;
+  line-height: 1.4em;
+}
