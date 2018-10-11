@@ -6,25 +6,23 @@ let modal;
 /**
  * Initialize Google map, called from HTML.
  */
-window.initMap = () => {
-	fetchRestaurantFromURL((error, restaurant) => {
-		if (error) { // Got an error!
-			console.error(error);
-		} else {
-			self.map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 16,
-				center: restaurant.latlng,
-				scrollwheel: false
-			});
-			fillBreadcrumb();
-			LocalState.getMapMarkerForRestaurant(self.restaurant, self.map);
-		}
-	});
+
+ /**
+ * Get a parameter by name from page URL.
+ */
+getParameterByName = (name, url) => {
+	if (!url)
+		url = window.location.href;
+	name = name.replace(/[\]]/g, '\\$&');
+	const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`),
+		results = regex.exec(url);
+	if (!results)
+		return null;
+	if (!results[2])
+		return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
 };
 
-/**
- * Get current restaurant from page URL.
- */
 fetchRestaurantFromURL = (callback) => {
 	if (self.restaurant) { // restaurant already fetched!
 		callback(null, self.restaurant);
@@ -47,6 +45,44 @@ fetchRestaurantFromURL = (callback) => {
 	}
 };
 
+
+ if (navigator.onLine) {
+	console.log('sdls;dk;sdksssssssssssssssssssss')
+
+	window.initMap = () => {
+		fetchRestaurantFromURL((error, restaurant) => {
+			if (error) { // Got an error!
+				console.error(error);
+			} else {
+				self.map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 16,
+					center: restaurant.latlng,
+					scrollwheel: false
+				});
+				fillBreadcrumb();
+				LocalState.getMapMarkerForRestaurant(self.restaurant, self.map);
+			}
+		});
+	}; 
+} else {
+	console.log('sdlsdlsddddddd')
+	// const toggle = () => {
+		// console.log('idhar aa gya')
+		fetchRestaurantFromURL((error, restaurant) => {
+			if (error) { // Got an error!
+				console.error(error);
+			} else {
+				fillBreadcrumb();
+				// LocalState.getMapMarkerForRestaurant(self.restaurant, self.map);
+			}
+		})
+	// }
+	// toggle() 
+}
+
+/**
+ * Get current restaurant from page URL.
+ */
 /**
  * Create restaurant HTML and add it to the webpage
  */
@@ -329,18 +365,3 @@ fillBreadcrumb = (restaurant=self.restaurant) => {
 	breadcrumb.appendChild(li);
 };
 
-/**
- * Get a parameter by name from page URL.
- */
-getParameterByName = (name, url) => {
-	if (!url)
-		url = window.location.href;
-	name = name.replace(/[\]]/g, '\\$&');
-	const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`),
-		results = regex.exec(url);
-	if (!results)
-		return null;
-	if (!results[2])
-		return '';
-	return decodeURIComponent(results[2].replace(/\+/g, ' '));
-};
