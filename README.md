@@ -15,7 +15,7 @@
 
 ### Stage 1 & 2
 
-- Screenshots are available [here](./frontend/screenshots) which consists of five screens - Mobile, Tablet, Small Desktop, Medium Desktop and Large Desktop.
+- Screenshots are available [here](./front-end/screenshots) which consists of five screens - Mobile, Tablet, Small Desktop, Medium Desktop and Large Desktop.
 - Video Screenshot is [here](https://drive.google.com/file/d/1N3OVcf6RgXJ9wEnftVQisd0AWoA06sw-/view).
 
 ### Stage 3
