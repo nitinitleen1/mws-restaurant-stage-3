@@ -3,8 +3,8 @@
 ## Usage
 
 - `cd` into this repo.
-- Open terminal, `cd backend` and then start Backend Server by following this [Readme](./backend/README.md)
-- Open new tab in terminal, `cd frontend` and Start Frontend Server by following this [Readme](./frontend/README.md)
+- Open terminal, `cd back-end` and then start Backend Server by following this [Readme](./back-end/README.md)
+- Open new tab in terminal, `cd frontend` and Start Frontend Server by following this [Readme](./front-end/README.md)
 
 ## Port Info
 
